@@ -1306,6 +1306,18 @@ class AN_Stream
 	{
 		return fstat($this->file);
 	}
+
+        function cache_path($filename)
+        {
+          $path = Acorn::$cache_path;
+
+          if (is_dir($path) === false)
+          {
+            mkdir($path);
+          }
+
+          return $path.'/'.$filename;
+        }
 }
 
 // Use the PHP short tags (e.g. <? or <?=) even if it's turned off by including/requiring a file with the "anview" protocol (e.g. include('anview://myfile.php'))
@@ -1314,7 +1326,7 @@ class AN_ViewStream extends AN_Stream
 {
 	function stream_open($path, $mode, $options, &$opened_path)
 	{
-		$cache = Acorn::$cache_path.'/view_'.md5($path);
+		$cache = self::cache_path('view_'.md5($path));
 		$path = self::stream_path($path);
 
 		if (file_exists($cache) === false || filemtime($path) > filemtime($cache))
@@ -1344,7 +1356,7 @@ class AN_ModelStream extends AN_Stream
 {
 	function stream_open($path, $mode, $options, &$opened_path)
 	{
-		$cache = Acorn::$cache_path.'/model_'.md5($path);
+		$cache = self::cache_path('model_'.md5($path));
 		$path = self::stream_path($path);
 
 		if (file_exists($cache) === false || filemtime($path) > filemtime($cache))
