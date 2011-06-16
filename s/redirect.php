@@ -6,11 +6,8 @@ if (empty($_GET['u']))
   exit;
 }
 
-define('ROOT_DIR', '.');
-require('../acorn.php');
-require('../db.php');
-
-Acorn::$cache_path = '../cache';
+define('LOAD_DB', TRUE);
+require('../inc/setup.php');
 
 $short = ShortUrl::fromShort($_GET['u']);
 

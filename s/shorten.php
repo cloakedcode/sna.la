@@ -6,11 +6,8 @@ if (empty($_POST['url']))
   exit;
 }
 
-define('ROOT_DIR', '.');
-require('../acorn.php');
-require('../db.php');
-
-Acorn::$cache_path = '../cache';
+define('LOAD_DB', TRUE);
+require('../inc/setup.php');
 
 $short = ShortUrl::toShort($_POST['url']);
 
