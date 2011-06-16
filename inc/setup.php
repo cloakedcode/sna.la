@@ -14,7 +14,7 @@ if (defined('LOAD_DB') && LOAD_DB === TRUE)
       'user'      => 'lovetta',
       'password'  => '8FSdkouf',
       'database'  => 'laverna',
-      'host'      => '/tmp/mysql/laverna.sock',
+      'socket'      => '/tmp/mysql/laverna.sock',
       'adapter'   => 'mysql',
       ));
   }
