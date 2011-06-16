@@ -5,16 +5,16 @@ require(ROOT_DIR.'/inc/acorn.php');
 
 Acorn::$include_paths[] = ROOT_DIR;
 
+/*
 if (isset($_SERVER['IS_ON_PAGODA']))
 {
-  Acorn::$cache_path = '/etc/cache';
-  var_dump(file_exists(Acorn::$cache_path));
-  var_dump(system('ls /'));
+  Acorn::$cache_path = 'cache';
 }
 else
 {
+*/
   Acorn::$cache_path = $_SERVER['DOCUMENT_ROOT'].'/cache';
-}
+//}
 
 if (defined('LOAD_DB') && LOAD_DB === TRUE)
 {
