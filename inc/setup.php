@@ -7,7 +7,9 @@ Acorn::$include_paths[] = ROOT_DIR;
 
 if (isset($_SERVER['IS_ON_PAGODA']))
 {
-  Acorn::$cache_path = '/cache';
+  Acorn::$cache_path = '/etc/cache';
+  var_dump(file_exists(Acorn::$cache_path));
+  var_dump(system('ls /');
 }
 else
 {
