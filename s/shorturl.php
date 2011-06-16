@@ -47,6 +47,8 @@ class ShortUrl extends AN_Model
   static function _shortUrlFromId($integer)
   {
     $length = strlen(self::$chars);
+    $out = '';
+
     while ($integer > $length - 1)
     {
       $out = self::$chars[fmod($integer, $length)] . $out;
