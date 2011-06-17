@@ -1,6 +1,7 @@
 <?php
 
 echo "<pre>".print_r($_SERVER, true).'</pre>';
+exit;
 if (empty($_SERVER['QUERY_STRING']))
 {
   header('Location: /');
