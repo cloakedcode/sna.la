@@ -1,9 +1,10 @@
 body {
-  background-color: #FFFFFD;
+  color: #3C3C2A;
+  background-color: #FFFEFE;
   font-family: Georgia, serif;
 }
 
 h1,h2,h3,h4,h5 {
-  color: #CB3030;
+  color: #6C2E05;
   font-family: Arial, sans-serif;
 }

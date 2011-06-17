@@ -1,6 +1,6 @@
 shared_writable_dirs:
   - /cache
 url_rewrites:
-  - "s/^([a-zA-Z]{1,})$ s/redirect.php?u=$1"
+  - "~([a-zA-Z]{1,})$ s/redirect.php?u=$1"
 
 php_extensions: [mysql, pdo_mysql]
