@@ -1,4 +1,6 @@
 shared_writable_dirs:
   - /cache
+url_rewrites:
+  - ".+ router.php"
 
 php_extensions: [mysql, pdo_mysql]
