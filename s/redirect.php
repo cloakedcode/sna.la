@@ -18,10 +18,12 @@ if ($short === false)
 }
 
 // The URL has been shortened, so record tracking data.
-$referer = $_SERVER['HTTP_REFERER'];
-$ip = realIP();
+if (isset($_SERVER['HTTP_REFERER']))
+{
+  ShortUrlClick::track_click($short, $_SERVER['HTTP_REFERER']);
+}
 
-ShortUrlClick::track_click($short, $referer, $ip);
+ShortUrlLoc::track_ip($short, realIP());
 
 //header('HTTP/1.1 301 Moved Permanently');
 //header('Location: '.$short->long);

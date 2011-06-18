@@ -2,7 +2,7 @@
 
 class ShortUrlClick extends AN_Model
 {
-  static function track_click($short_url, $referer, $ip)
+  static function track_click($short_url, $referer)
   {
     $id = $short_url->id;
 
@@ -27,7 +27,5 @@ class ShortUrlClick extends AN_Model
       $click->clicks += 1;
       $click->save();
     }
-
-    ShortUrlLoc::track_ip($short_url, $ip);
   }
 }
