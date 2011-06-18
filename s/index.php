@@ -2,4 +2,4 @@
 
 require('../inc/setup.php');
 
-Acorn::renderView('home');
+Acorn::renderView('s/home');

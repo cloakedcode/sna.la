@@ -17,5 +17,5 @@ if ($short === false)
   exit;
 }
 
-header('HTTP/1.1 301 Moved Permanently');
+//header('HTTP/1.1 301 Moved Permanently');
 header('Location: '.$short);

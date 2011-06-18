@@ -2,7 +2,7 @@
 
 class ShortUrl extends AN_Model
 {
-  static $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  static $chars = 'YgsHfbvMw6ECrjRn4p51hcUiIdy0LekD29NSFtGXqxlTBVQaKAz3PJWu8OZ7om';
 
   static function toShort($url)
   {
