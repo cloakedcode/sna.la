@@ -9,7 +9,7 @@ class ShortUrlClick extends AN_Model
     $host = parse_url($referer, PHP_URL_HOST);
     $path = parse_url($referer, PHP_URL_PATH);
 
-    $clicks = self::query('SELECT * FROM #table WHERE `short_url_id` = ? `host` = ? AND `path` = ?', $id, $host, $path);
+    $clicks = self::query('SELECT * FROM #table WHERE `short_url_id` = ? AND `host` = ? AND `path` = ?', $id, $host, $path);
 
     if (empty($clicks[0]))
     {

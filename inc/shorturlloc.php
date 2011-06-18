@@ -16,7 +16,7 @@ class ShortUrlLoc extends AN_Model
 
     if ($country_name !== 'Reserved')
     {
-      $locs = self::query('SELECT * FROM #table WHERE `short_url_id` = ? `country_name` = ?', $id, $country_name);
+      $locs = self::query('SELECT * FROM #table WHERE `short_url_id` = ? AND `country_name` = ?', $id, $country_name);
 
       if (empty($locs[0]))
       {
@@ -29,7 +29,7 @@ class ShortUrlLoc extends AN_Model
       }
       else
       {
-        $click = $clicks[0];
+        $click = $locs[0];
 
         $click->clicks += 1;
         $click->save();

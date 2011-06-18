@@ -26,7 +26,7 @@ if (isset($_SERVER['HTTP_REFERER']))
 ShortUrlLoc::track_ip($short, realIP());
 
 //header('HTTP/1.1 301 Moved Permanently');
-//header('Location: '.$short->long);
+header('Location: '.$short->long);
 
 function realIP()
 {

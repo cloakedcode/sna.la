@@ -33,7 +33,7 @@ class ShortUrl extends AN_Model
 
   static function fromShort($url)
   {
-      $shorts = self::query('SELECT `long` FROM #table WHERE `short` = ? LIMIT 1', $url);
+      $shorts = self::query('SELECT `id`, `long` FROM #table WHERE `short` = ? LIMIT 1', $url);
 
       // If there is already a short url
       if (empty($shorts[0]) === FALSE)
