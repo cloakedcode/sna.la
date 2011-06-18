@@ -38,7 +38,7 @@ class ShortUrl extends AN_Model
       // If there is already a short url
       if (empty($shorts[0]) === FALSE)
       {
-        return $shorts[0]->long;
+        return $shorts[0];
       }
 
       return FALSE;
