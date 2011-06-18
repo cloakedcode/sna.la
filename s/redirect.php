@@ -7,7 +7,7 @@ if (empty($_GET['u']))
 }
 
 define('LOAD_DB', TRUE);
-require('../inc/setup.php');
+require($_SERVER['DOCUMENT_ROOT'].'/inc/setup.php');
 
 $short = ShortUrl::fromShort($_GET['u']);
 

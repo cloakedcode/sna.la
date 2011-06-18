@@ -1,13 +1,17 @@
 <?php
 
-echo "<pre>".print_r($_SERVER, true).'</pre>';
-exit;
-if (empty($_SERVER['QUERY_STRING']))
+$url = substr($_SERVER['REQUEST_URI'], 1);
+
+// If no URL was requested, go home.
+if (empty($url))
 {
-  header('Location: /');
+  include('index.php');
   exit;
 }
 
-$url = $_GET['u'];
-
-
+// If it's a short url, open redirect.php.
+if (substr($url, 0, 1) === '~')
+{
+  $_GET['u'] = substr($url, 1);
+  include('s/redirect.php');
+}
