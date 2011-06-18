@@ -2,7 +2,7 @@ shared_writable_dirs:
   - /cache
 url_rewrites:
   - 
-    rule: ".+ /router.php"
+    rule: "/~(.+) /redirect.php?u=$1"
     conditions:
               - "!-f $request_filename"
               - "!-d $request_filename"
