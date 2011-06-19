@@ -1,18 +1,39 @@
 body {
-  color: #3C3C2A;
-  background-color: #FFFEFE;
+  color: #2C2C2C;
+  background-color: #fff;
   font-family: Georgia, serif;
 }
 
 h1,h2,h3,h4,h5 {
-  color: #6C2E05;
+  color: #681B8F;
   font-family: Arial, sans-serif;
   text-shadow: #ddd 1px 1px 1px;
 }
 
+h1 {
+  font-size: 250%;
+}
+
+h2 {
+  font-size: 175%;
+}
+
+a {
+  color: #711818;
+  text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 1px #BF6C6C dashed;
+}
+
+a:visited {
+  color: #AD1616;
+}
+
 #shorturl {
-  background-color: #F8F0E6;
-  border: 1px #F1E9E0 solid;
+  background-color: #F0E6F8;
+  border: 1px #DCCBEA solid;
   width: 354px;
   padding: 10px;
 }
