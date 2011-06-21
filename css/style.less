@@ -1,11 +1,15 @@
+@base-color: #681B8F;
+@alt-color: #BD1B1B;
+
 body {
   color: #2C2C2C;
   background-color: #fff;
   font-family: Georgia, serif;
+  font-size: 16px;
 }
 
 h1,h2,h3,h4,h5 {
-  color: #681B8F;
+  color: @base-color;
   font-family: Arial, sans-serif;
   text-shadow: #ddd 1px 1px 1px;
 }
@@ -19,21 +23,19 @@ h2 {
 }
 
 a {
-  color: #711818;
+  color: @alt-color;
   text-decoration: none;
-}
-
-a:hover {
-  border-bottom: 1px #BF6C6C dashed;
-}
-
-a:visited {
-  color: #AD1616;
+  :hover {
+    color: lighten(@alt-color, 20%);
+  }
+  :visited {
+    color: darken(@alt-color, 10%);
+  }
 }
 
 #shorturl {
-  background-color: #F0E6F8;
-  border: 1px #DCCBEA solid;
+  background-color: lighten(@base-color, 60%);
+  border: 1px lighten(@base-color, 50%) solid;
   width: 354px;
   padding: 10px;
 }

@@ -1,6 +1,8 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
+RewriteRule ^css/(.+).css css/less.php?f=$1 [L]
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^~(.+) s/redirect.php?u=$1 [L]
