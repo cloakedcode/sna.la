@@ -7,7 +7,7 @@ url_rewrites:
               - "!-f $request_filename"
               - "!-d $request_filename"
   - 
-    rule: "/css/(.+?).css /css/less.php?f=$1"
+    rule: "/(.+) /index.php?u=$1"
     conditions:
               - "!-f $request_filename"
               - "!-d $request_filename"

@@ -1,4 +1,6 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>sna.la</title>
   <link href='/css/style.css' rel='stylesheet' type='text/css' />
@@ -6,7 +8,32 @@
 </head>
 
 <body>
-<?php echo Acorn::$view_contents ?>
+	<div id='header'>
+		<div id='logo'>
+			<a href='/'>sna.la</a>
+		</div>
+		<div id='nav'>
+			<ul>
+				<? $last = count($menu) - 1 ?>
+				<? foreach ($menu as $i => $item) : ?>
+				<li><a href='/<?= $item['id'] ?>'><?= $item['title'] ?></a></li>
+				<? if ($i !== $last) : ?>
+				|
+				<? endif ?>
+				<? endforeach ?>
+			</ul>
+		</div>
+	</div>
+
+	<div id='content'>
+		<?= Acorn::$view_contents ?>
+	</div>
+
+	<div id='footer'>
+		<p>
+			Copyright &copy; 2011 Alan Smith.
+		</p>
+	</div>
 
 <script type="text/javascript">
 var _gaq = _gaq || [];

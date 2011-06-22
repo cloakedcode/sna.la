@@ -2,18 +2,19 @@
 
 if (empty($_GET['f']) === false)
 {
-  require('./lessphp/lessc.inc.php');
-  $input = $_SERVER['DOCUMENT_ROOT'].'/css/'.$_GET['f'].'.less';
-  $output = $_SERVER['DOCUMENT_ROOT'].'/cache/'.$_GET['f'].'.css';
+    $root = $_SERVER['DOCUMENT_ROOT'];
+    require($root.'/css/lessphp/lessc.inc.php');
+    $input = $root.'/css/'.$_GET['f'].'.less';
+    $output = $root.'/cache/'.$_GET['f'].'.css';
 
-  try {
-    lessc::ccompile($input, $output);
-  }
-  catch (exception $ex) {
-    exit($ex->getMessage());
-  }
+    try {
+        lessc::ccompile($input, $output);
+    }
+    catch (exception $ex) {
+        exit($ex->getMessage());
+    }
 
-  header('Content-type: text/css');
+    header('Content-type: text/css');
 
-  readfile($output);
+    readfile($output);
 }

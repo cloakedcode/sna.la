@@ -1,7 +1,7 @@
+<div style='margin-left: 200px'>
 <h1>Shorten a URL</h1>
 <form method='post' action='shorten.php'>
-  <label>URL</label>
-  <input type='text' name='url' id='url' />
+  <input type='string' name='url' id='url' style='width:210px' />
   <input type='submit' value='Shorten' />
 </form>
 
@@ -24,3 +24,4 @@ $(document).ready(function() {
   });
 });
 </script>
+</div>

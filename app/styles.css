@@ -1,0 +1,171 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+body {
+	background-color: #231F21;
+	color: #F1F1F1;
+	font-family: Georgia, sans-serif;
+	font-size: 16px;
+	line-height: 1.3em;
+}
+
+h1, h2, h3, h4 {
+	color: #84C145;
+	font-family: Helvetica, arial, serif;
+	margin-bottom: 8px;
+}
+
+h1 a, h2 a, h3 a, h4 a {
+	color: #84C145;
+}
+
+h2, h3, h4 {
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+p {
+	margin-bottom: 1.3em;
+}
+
+blockquote {
+	padding: 15px;
+	padding-top: 20px;
+	margin-bottom: 20px;
+	font-style: italic;
+	background-color: #1F1D1E;
+	border: 1px gray solid;
+}
+
+a {
+	text-decoration: none;
+	color: #9DCF67;
+	padding: 1px;
+}
+
+a:hover {
+	color: #7ECF26;
+}
+
+hr {
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
+
+ul, ol {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-left: 35px;
+}
+
+li {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+label {
+	font-family: Helvetica, arial, serif;
+}
+
+input[type=text], textarea {
+	border: 2px solid gray;
+	margin-top: 1px;
+	margin-bottom: 10px;
+	padding: 3px;
+	font-size: 110%;
+	font-family: Lucida Grande, arial, serif;
+}
+
+textarea {
+	font-family: Lucida Grande, arial, serif;
+}
+
+input[type=submit] {
+	padding: 3px 9px 3px 9px;
+	font-size: 110%;
+}
+
+.error {
+	color: #84C145;
+}
+
+#error {
+	border: 2px solid #4E8616;
+	background-color: #84C145;
+	color: #000;
+	padding: 5px;
+	margin-bottom: 8px;
+	display: none;
+}
+
+#header {
+	padding: 15px 0px;
+	border-bottom: 1px dashed gray;
+	font-family: Helvetica, arial, serif;
+}
+
+#logo {
+	float: left;
+    margin-left: 20px;
+	line-height: 55px;
+	font-size: 55px;
+}
+
+#logo a {
+	text-shadow: 0px 0px 2px #000;
+}
+
+#nav {
+    /*text-align: center;*/
+	padding: 40px 0px 40px 300px;
+}
+
+#nav ul {
+	list-style: none;
+}
+
+#nav li {
+	display: inline;
+}
+
+#theme {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+#content {
+	width: 600px;
+	margin: auto;
+	padding-top: 30px;
+}
+
+#footer {
+	font-size: 75%;
+	margin-top: 25px;
+	padding: 5px;
+	border-top: 1px dashed gray;
+	text-align: center;
+}
+
+.date {
+	font-size: 80%;
+	margin-top: 6px;
+	margin-left: 1px;
+	color: gray;
+}
+
+.post {
+	margin-bottom: 25px;
+}
+
+.post .title {
+	display: inline;
+}
+
+.post-content {
+	margin-top: 15px;
+}
