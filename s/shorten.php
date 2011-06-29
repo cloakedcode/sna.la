@@ -33,7 +33,7 @@ $short = "http://{$_SERVER['HTTP_HOST']}/~{$short}";
   <param name="quality" value="high" />
   <param name="scale" value="noscale" />
   <param NAME="FlashVars" value="id=short_url_clippy">
-  <param name="bgcolor" value="#F0E6F8">
+  <param name="bgcolor" value="#F2E6FB">
   <embed src="/flash/clippy.swf"
          width="110"
          height="14"
@@ -43,7 +43,7 @@ $short = "http://{$_SERVER['HTTP_HOST']}/~{$short}";
          type="application/x-shockwave-flash"
          pluginspage="http://www.macromedia.com/go/getflashplayer"
          FlashVars="id=short_url_clippy"
-         bgcolor="#F0E6F8"
+         bgcolor="#F2E6FB"
   />
   </object>
 </div>
