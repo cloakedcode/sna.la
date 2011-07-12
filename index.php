@@ -67,15 +67,8 @@ else if (preg_match('/^([0-9]{4})\/?(([0-9]{2})\/?)?(([0-9]{2})\/?)?((.+?)(\.htm
 // If it's anything else, show all posts.
 else
 {
-        $p = Page::pageWithId('goodies');
-
-        Acorn::$vars['page'] = $p;
-        Acorn::$vars['title'] = $p->title;
-        Acorn::renderView('views/page');
-        /*
 	Acorn::$vars['posts'] = Post::posts();
 	Acorn::renderView('views/posts');
-        */
 }
 
 echo '<!--- Page took: '.(microtime(true) - $time)."-->\n";
