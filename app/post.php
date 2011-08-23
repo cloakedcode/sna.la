@@ -12,7 +12,6 @@ class Post extends AN_Model
 		{
 			foreach (glob('posts/*.html') as $p)
 			{
-                                var_dump($p);
 				$posts[] = self::_post(basename($p));
 			}
 		}
@@ -35,7 +34,6 @@ class Post extends AN_Model
 		$matches = array();
 		if (preg_match('/([0-9]{4}-[0-9]{2}-[0-9]{2})-([A-Z|a-z|0-9|\-]*?)\.html$/', $filename, $matches))
 		{
-                var_dump($filename);
                         $file_contents = explode("\n\n", file_get_contents("./posts/{$filename}"), 2);
                         $data = array(
                                         'id' => $matches[1].'-'.$matches[2].'.html',
