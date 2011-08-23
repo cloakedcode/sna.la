@@ -68,7 +68,6 @@ else if (preg_match('/^([0-9]{4})\/?(([0-9]{2})\/?)?(([0-9]{2})\/?)?((.+?)(\.htm
 else
 {
 	Acorn::$vars['posts'] = Post::posts();
-        var_dump(Acorn::$vars['posts']);
 	Acorn::renderView('views/posts');
 }
 
