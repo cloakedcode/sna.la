@@ -35,6 +35,7 @@
 		</p>
 	</div>
 
+<? if ($_SERVER['HTTP_HOST'] === 'sna.la') : ?>
 <script type="text/javascript">
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-24052779-1']);
@@ -46,6 +47,7 @@ _gaq.push(['_trackPageview']);
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 </script>
+<? endif ?>
 
 </body>
 </html>
