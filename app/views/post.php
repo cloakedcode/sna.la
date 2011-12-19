@@ -1,4 +1,14 @@
 <h1 class='post-title'><?= $post->title ?></h1>
+<div class='tags'>Tags:
+    <? if (empty($post->tags)) : ?>
+    none
+    <? else : ?>
+    <? foreach($post->tags as $i => $t) : ?>
+    <?= ($i > 0) ? ', ' : '' ?>
+    <a href='/tag/<?= $t ?>'><?= $t ?></a>
+    <? endforeach ?>
+    <? endif ?>
+</div>
 <div class='date'><?= $post->date() ?>.</div>
 
 <div class='post-content'>

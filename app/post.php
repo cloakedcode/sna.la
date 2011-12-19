@@ -3,6 +3,7 @@
 class Post extends AN_Model
 {
         static $posts = array();
+        static $tags = array();
 
 	static function posts()
 	{
@@ -28,6 +29,33 @@ class Post extends AN_Model
 
 		return null;
 	}
+        
+        static function tags()
+        {
+            $path = './cache/post_tags';
+            if (empty(self::$tags) && file_exists($path))
+            {
+                self::$tags = unserialize(file_get_contents($path));
+            }
+
+            return self::$tags;
+        }
+
+        static function postsWithTag($tag)
+        {
+            $posts = array();
+
+            $tags = self::tags();
+            if (isset($tags[$tag]))
+            {
+                foreach ($tags[$tag] as $p)
+                {
+                    $posts[] = self::_post($p);
+                }
+            }
+
+            return $posts;
+        }
 
 	static function _post($filename)
 	{
@@ -47,7 +75,31 @@ class Post extends AN_Model
                         {
                                  $split = preg_split('/: ?/', $value);
 
+                                 if ($split[0] == 'tags')
+                                 {
+                                    $split[1] = preg_split('/, ?/', $split[1]);
+                                 }
+
                                  $data[$split[0]] = $split[1];
+                        }
+
+                        if (empty($data['tags']) === FALSE)
+                        {
+                            // Load the tags
+                            self::tags();
+                            $post_tags_cache = './cache/post_tags';
+
+                            // If the tags have not been cached or the post
+                            // was created after the last time the tags were cached
+                            if (file_exists($post_tags_cache) === FALSE || $data['date'] >= filemtime($post_tags_cache))
+                            {
+                                foreach ($data['tags'] as $t)
+                                {
+                                    self::$tags[$t][] = $data['id'];
+                                }
+
+                                file_put_contents($post_tags_cache, serialize(self::$tags));
+                            }
                         }
 
 			return new self($data);

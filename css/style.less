@@ -84,11 +84,28 @@ a {
   padding: 10px;
 }
 
+@light-gray: lighten(@base-color, 50%);
+
 .date {
 	font-size: 80%;
 	margin-top: 6px;
 	margin-left: 1px;
-	color: lighten(@base-color, 50%);
+	color: @light-gray;
+}
+
+.tags {
+    font-size: 70%;
+    color: @light-gray;
+
+    a {
+        color: @light-gray;
+        border-color: @light-gray;
+    }
+
+    a:hover {
+        color: darken(@light-gray, 25%);
+        border-color: darken(@light-gray, 25%);
+    }
 }
 
 .post-links {

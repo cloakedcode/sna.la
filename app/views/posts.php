@@ -1,3 +1,10 @@
+<? if (empty($posts)) : ?>
+    <? if (isset($tagged)) : ?>
+    <p>There are no posts with that tag.</p>
+    <? else : ?>
+    <p>There are no posts yet, patience.</p>
+    <? endif ?>
+<? endif ?>
 <?
 $last = count($posts) -1;
 foreach ($posts as $i => $post) :
