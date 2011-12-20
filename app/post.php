@@ -3,7 +3,7 @@
 class Post extends AN_Model
 {
         static $posts = array();
-        static $tags = array();
+        private static $tags = array();
 
 	static function posts()
 	{
@@ -38,7 +38,33 @@ class Post extends AN_Model
                 self::$tags = unserialize(file_get_contents($path));
             }
 
-            return self::$tags;
+            if (empty(self::$tags['posts']))
+            {
+                self::$tags['posts'] = array();
+            }
+            $files = glob('./posts/*.html');
+            if (count(self::$tags['posts']) < count($files))
+            {
+                foreach ($files as $f)
+                {
+                    $f = basename($f);
+                    if (in_array($f, self::$tags['posts']) === FALSE)
+                    {
+                        $post = self::_post($f);
+                        if (empty($post->tags) === FALSE)
+                        {
+                            foreach ($post->tags as $t)
+                            {
+                                self::$tags['post_tags'][$t][] = $post->id;
+                            }
+                        }
+                        self::$tags['posts'][] = $f;
+                    }
+                }
+                file_put_contents($path, serialize(self::$tags));
+            }
+
+            return self::$tags['post_tags'];
         }
 
         static function postsWithTag($tag)
@@ -81,25 +107,6 @@ class Post extends AN_Model
                                  }
 
                                  $data[$split[0]] = $split[1];
-                        }
-
-                        if (empty($data['tags']) === FALSE)
-                        {
-                            // Load the tags
-                            self::tags();
-                            $post_tags_cache = './cache/post_tags';
-
-                            // If the tags have not been cached or the post
-                            // was created after the last time the tags were cached
-                            if (file_exists($post_tags_cache) === FALSE || $data['date'] >= filemtime($post_tags_cache))
-                            {
-                                foreach ($data['tags'] as $t)
-                                {
-                                    self::$tags[$t][] = $data['id'];
-                                }
-
-                                file_put_contents($post_tags_cache, serialize(self::$tags));
-                            }
                         }
 
 			return new self($data);

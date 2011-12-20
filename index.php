@@ -64,7 +64,7 @@ else if (preg_match('/^([0-9]{4})\/?(([0-9]{2})\/?)?(([0-9]{2})\/?)?((.+?)(\.htm
             Acorn::renderView('views/post');
     }
 }
-else if (preg_match('/^tag\/([a-z|A-Z]+?)\/?$/', $request, $m))
+else if (preg_match('/^tag\/([a-z|A-Z|_]+?)\/?$/', $request, $m))
 {
 	Acorn::$vars['posts'] = Post::postsWithTag($m[1]);
         Acorn::$vars['tagged'] = TRUE;
