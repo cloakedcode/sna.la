@@ -1,0 +1,20 @@
+title: Web proxy through ssh tunnel
+tags: proxy ssh
+
+Half way across the country is a computer sitting in a room. I have full access to that computer and wanted to use it to tunnel my web browsing through the network of that computer.
+
+I came across an [article on RevSys](http://www.revsys.com/writings/quicktips/ssh-tunnel.html) that created a tunnel like this:
+
+    ssh -f user@example.com -L 2000:example.com:80 -N
+
+But that gave me an error whenever I tried to visit a web page using the tunnel as a proxy:
+
+    SSH-2.0-OpenSSH_5.3p1 Debian-3ubuntu6 Protocol mismatch.
+
+Then I found a much better [article on LifeHacker](http://lifehacker.com/237227/geek-to-live--encrypt-your-web-browsing-session-with-an-ssh-socks-proxy) that did things differently:
+
+    ssh -ND 2000 user@personal-server.com
+
+_(I added the `-C` flag to make things a little faster; `-C` turns on gzip compression.)_
+
+The method put down by LifeHacker is much easier to read (there aren't numerous ports you have to decipher), and it works!
