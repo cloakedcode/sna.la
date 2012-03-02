@@ -5,14 +5,16 @@ class ShortUrlLoc extends AN_Model
   static function track_ip($short_url, $ip)
   {
     $id = $short_url->id;
-    $data = file_get_contents('http://ip2country.sourceforge.net/ip2c.php?format=JSON&ip='.$ip);
+    $data = self::get_data('http://ip2country.sourceforge.net/ip2c.php?format=JSON&ip='.$ip);
 
     foreach (array('ip', 'hostname', 'country_code', 'country_name') as $key)
     {
       $data = str_replace($key, "\"{$key}\"", $data);
     }
 
-    extract(json_decode($data, true));
+    $vars = json_decode($data, true);
+    $country_name = $vars['country_name'];
+    $country_code = $vars['country_code'];
 
     if ($country_name !== 'Reserved')
     {
@@ -20,7 +22,7 @@ class ShortUrlLoc extends AN_Model
 
       if (empty($locs[0]))
       {
-        self::create(array(
+        $obj = self::create(array(
           'short_url_id' => $id,
           'country_name' => $country_name,
           'country_code' => $country_code,
@@ -35,5 +37,17 @@ class ShortUrlLoc extends AN_Model
         $click->save();
       }
     }
+  }
+
+  static private function get_data($url)
+  {
+    $ch = curl_init();
+    $timeout = 5;
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+    curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);
+    $data = curl_exec($ch);
+    curl_close($ch);
+    return $data;
   }
 }
