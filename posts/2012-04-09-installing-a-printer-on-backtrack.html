@@ -1,0 +1,17 @@
+title: Installing a Printer on Backtrack
+tags: linux, backtrack, howto
+
+I am lucky enough to work for IT on my college's campus. They gave me the task of cleaning out a back closet, full of old, unneeded, stuff. One of the items was a Samsung laser printer (built-in duplexer!). I snagged that, what I didn't was to be recycled, and installed it in my room. Having not installed a printer from scratch before I had some learning to do. It's really easy on linux (in my case Backtrack 5).
+
+## Installation Steps on Linux
+ 1. `sudo apt-get install lp` (installs CUPS).
+ 2. [Download the driver](http://www.openprinting.org/drivers) for your printer series.
+ 3. Install the driver (e.g. `sudo dpkg --install really_long_name_of_driver_package.deb`).
+ 4. Open the CUPS web interface ([localhost:631](http://localhost:631)).
+ 5. Click `Add Printer` and enter your login username and password (e.g. root/password).
+ 6. Complete the wizard.
+ 7. Done! Print your file.
+
+If you get caught up at any point along the way, the [CUPS manual](http://www.cups.org/doc-1.1/sam.html) may be of use. (Printers can be [managed from the command line](http://www.cups.org/doc-1.1/sam.html#4_3) if you want to do it that way.)
+
+It was very satisfying to see a print come out of a salvaged printer. Beautiful!
