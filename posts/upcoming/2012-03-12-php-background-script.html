@@ -1,0 +1,9 @@
+title: PHP background script
+tags: php, code, script
+
+For this blog I needed to run a script in the background, so as not to block the users loading of the page. I knew this was possible because I'd seen it done (I think I first saw it in Drupal's cron script). A quick search with Google and I found what I was after:
+
+    ignore_user_abort(true);
+    set_time_limit(0);
+
+([Thanks to StackOverflow](http://stackoverflow.com/questions/265073/php-background-processes).)

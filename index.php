@@ -77,4 +77,6 @@ else
 	Acorn::renderView('views/posts');
 }
 
+include('cron.php');
+
 echo '<!--- Page took: '.(microtime(true) - $time)."-->\n";
