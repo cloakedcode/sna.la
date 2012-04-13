@@ -1,0 +1,8 @@
+title: Replace the Finder in OS X
+tags: mac, howto
+
+For work several weeks ago, I was attempting to create a "kiosk" mode in OS X, 10.6. Turns out it's not very straight forward, unless you have an app specifically written to function as a kiosk. But, even with that tool, you'd have to replace the Finder (with that app). So I did a little hunting (i.e. googling) and came across answers [like this](http://superuser.com/questions/89619/how-to-disable-finder-launching-at-login-in-snow-leopard) (not that one specifically but similar, saying it wasn't possible anymore with the `defaults write ...loginwindow`). But then it occurred to me, why not overwrite the `/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder` file with a script?
+
+Overwriting that file, and making it executable (`chmod +x ...`) worked like a charm. The wonderful thing was that the app I launched instead (through the script) couldn't be killed. If the user quit, it would be started right back up.
+
+(Note: As I was writing this post, I came across a [StackExchange question](http://apple.stackexchange.com/questions/19589/is-there-a-way-to-replace-finder-altogether) with a link to [a tech note](http://developer.apple.com/library/mac/#technotes/tn2062/_index.html) that describes an alternate method -- editing the LaunchAgent.)
