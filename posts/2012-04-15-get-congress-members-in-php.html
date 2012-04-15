@@ -1,0 +1,34 @@
+title: Get U.S. Congress Members in PHP
+tags: code, php
+
+For a website I'm [helping to create](http://nodrones.info), we needed to have a list of current U.S. Congress members, based on state. Turns out the NYTimes has [a fantastic API](http://developer.nytimes.com/docs/congress_api) for this very thing. Below is the code I whipped up, feel free to steal it.
+
+    $states = array('AL' => 'Alabama', 'AK' => 'Alaska', 'AZ' => 'Arizona', 'AR' => 'Arkansas', 'CA' => 'California', 'CO' => 'Colorado', 'CT' => 'Connecticut', 'DE' => 'Delaware', 'FL' => 'Florida', 'GA' => 'Georgia', 'HI' => 'Hawaii', 'ID' => 'Idaho', 'IL' => 'Illinois', 'IN' => 'Indiana', 'IA' => 'Iowa', 'KS' => 'Kansas', 'KY' => 'Kentucky', 'LA' => 'Louisiana', 'ME' => 'Maine', 'MD' => 'Maryland', 'MA' => 'Massachusetts', 'MI' => 'Michigan', 'MN' => 'Minnesota', 'MS' => 'Mississippi', 'MO' => 'Missouri', 'MT' => 'Montana', 'NE' => 'Nebraska', 'NV' => 'Nevada', 'NH' => 'New Hampshire', 'NJ' => 'New Jersey', 'NM' => 'New Mexico', 'NY' => 'New York', 'NC' => 'North Carolina', 'ND' => 'North Dakota', 'OH' => 'Ohio', 'OK' => 'Oklahoma', 'OR' => 'Oregon', 'PA' => 'Pennsylvania', 'RI' => 'Rhode Island', 'SC' => 'South Carolina', 'SD' => 'South Dakota', 'TN' => 'Tennessee', 'TX' => 'Texas', 'UT' => 'Utah', 'VT' => 'Vermont', 'VA' => 'Virginia', 'WA' => 'Washington', 'WV' => 'West Virginia', 'WI' => 'Wisconsin', 'WY' => 'Wyoming');
+    
+    function congress_for_state($state_abbrev)
+    {
+    	global $states;
+    	// if valid state
+    	if (isset($states[$state_abbrev]))
+    	{
+    		// get congress by state
+    		$API_key = 'api_key_from_nytimes';
+    		// request data
+    		$data = file_get_contents("http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/house/{$state_abbrev}/1/current.json?api-key={$API_key}");
+    		// decode data
+    		$json = json_decode($data);
+    		$reps = array();
+    
+    		foreach ($json->results as $rep)
+    		{
+    			$reps[] = $rep->name;
+    		}
+    		
+    		// return dictionary of congressmen
+    		return $reps;
+    	}
+    	// else return error
+    	return array('error' => 'Please choose a valid state.');
+    }
+
+Note that the above code returns an array of House Representatives "at large", check [the docs](http://developer.nytimes.com/docs/congress_api#h3-current-member) for specifics on how to change the request URL to get House Representatives within districts or Senators.
