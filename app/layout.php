@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>sna.la</title>
+  <title>Alan S.</title>
   <link href='/css/style.css' rel='stylesheet' type='text/css' />
   <script src='/js/jquery.js' type='text/javascript'></script>
 </head>
@@ -10,7 +10,7 @@
 <body>
 	<div id='header'>
 		<div id='logo'>
-			<a href='/'>sna.la</a>
+			<a href='/'>Alan S.</a>
 		</div>
 		<div id='nav'>
 			<ul>

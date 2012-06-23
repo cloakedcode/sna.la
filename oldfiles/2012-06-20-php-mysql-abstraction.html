@@ -1,0 +1,17 @@
+title: PHP MySQL Abstraction
+tags: php, code, web
+
+In a handful of hours, and under 150 lines of code, I wrote an abstraction layer on top of MySQL in PHP. It provides a query method that allows the "question mark syntax" in SQL statements and returns the resulting database rows as objects. Rather than explaining, it's probably better if I just give you an example:
+
+    class UsersModel
+    {
+        function print_name()
+        {
+            echo $this->first_name . ' ' . $this->last_name;
+        }
+    }
+    
+    $users = $db->query('SELECT  FROM `users`');
+    $users[0]->print_name();
+
+Check out the [project on GitHub](https://github.com/cloakedcode/php-mysql) or read the one [page of documentation](https://github.com/cloakedcode/php-mysql/wiki). I encourage you to use this code as if it were your own, I've relinquished all rights to the code (see the UNLICENSE file).
