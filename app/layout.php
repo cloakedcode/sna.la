@@ -3,6 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title><?= (isset($title) ? "{$title} | " : '') ?>Alan S.</title>
+
+  <link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/snala" title="Alan S. RSS Feed" />
+
   <link href='/css/style.css' rel='stylesheet' type='text/css' />
   <script src='/js/jquery.js' type='text/javascript'></script>
 </head>
