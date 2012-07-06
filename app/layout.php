@@ -4,7 +4,7 @@
 <head>
   <title><?= (isset($title) ? "{$title} | " : '') ?>Alan S.</title>
 
-  <link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/snala" title="Alan S. RSS Feed" />
+  <link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/sna/VFkD" title="Alan S. RSS Feed" />
 
   <link href='/css/style.css' rel='stylesheet' type='text/css' />
   <script src='/js/jquery.js' type='text/javascript'></script>
@@ -34,23 +34,11 @@
 
 	<div id='footer'>
 		<p>
-			Copyright &copy; 2011 Alan Smith.
+			Copyright &copy; 2011-2012 Alan Smith. <a href="http://feeds.feedburner.com/sna/VFkD" title="Subscribe to my RSS feed!"><img src="feed.png" /></a>
 		</p>
 	</div>
 
 <? if ($_SERVER['HTTP_HOST'] === 'sna.la') : ?>
-<script type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-24052779-1']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
-<!-- Piwik -->
 <script type="text/javascript">
 var pkBaseURL = (("https:" == document.location.protocol) ? "https://sna.la/analytics/" : "http://sna.la/analytics/");
 document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
