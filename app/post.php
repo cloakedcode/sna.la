@@ -99,7 +99,7 @@ class Post extends AN_Model
 
                         foreach ($tags as $key => $value)
                         {
-                                 $split = preg_split('/: ?/', $value);
+                                 $split = preg_split('/: ?/', $value, 2);
 
                                  if ($split[0] == 'tags')
                                  {
